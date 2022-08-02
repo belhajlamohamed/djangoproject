@@ -1,0 +1,25 @@
+{% extends '../base.html' %}
+{% block content %}
+<div class="container shadow-lg mt-5" style="max-width: 600px;">
+    <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="display-4">Confirm Deletion</h1>
+        
+    </div>
+    <div class="py-5">
+        <div class="row">
+            <div class="col-12">
+                <form method="post">
+                    {% csrf_token %}
+                    <h1>Do you want to delete the book "{{book.title}}"?</h1>
+                    <p>
+                        <input type="submit" value="Yes"> 
+                        <a href="{% url 'books:book-detail' slug=book.slug %}">Cancel</a>
+                    </p>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock content %}
